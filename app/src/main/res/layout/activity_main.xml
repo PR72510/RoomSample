@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.roomsample.viewmodel.UserViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/btnUserLibrary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get User and Library"
+            android:onClick="@{()-> viewModel.fetchUserAndLibrary()}"
+            app:layout_constraintBottom_toTopOf="@+id/btnUserPlaylists"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSongPlaylists" />
+
+        <Button
+            android:id="@+id/btnUserPlaylists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get User with Playlists"
+            android:onClick="@{()-> viewModel.fetchUserAndPlaylists()}"
+            app:layout_constraintBottom_toTopOf="@+id/btnPlaylistSongs"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnUserLibrary" />
+
+        <Button
+            android:id="@+id/btnPlaylistSongs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Playlist with Songs"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{()-> viewModel.fetchPlaylistWithSongs()}"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnUserPlaylists" />
+
+        <Button
+            android:id="@+id/btnSongPlaylists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Song with Playlists"
+            android:onClick="@{()-> viewModel.fetchSongWithPlaylists()}"
+            app:layout_constraintBottom_toTopOf="@+id/btnUserLibrary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
